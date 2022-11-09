@@ -59,3 +59,8 @@ bool KsiazkaAdresowa::czyUzytkownikJestZAlogowany()
 {
     return uzytkownikMenadzer.czyUzytkownikJestZalogowany();
 }
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMenadzer->usunAdresata();
+}
