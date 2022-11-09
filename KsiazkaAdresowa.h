@@ -33,6 +33,7 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogojUzytkownika();
     bool czyUzytkownikJestZAlogowany();
+    void usunAdresata();
 
 
 };
