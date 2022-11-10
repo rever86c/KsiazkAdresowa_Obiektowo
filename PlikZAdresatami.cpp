@@ -234,13 +234,11 @@ void PlikZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
 
 void PlikZAdresatami::zaktualizujDaneAdresataWPliku(Adresat adresat)
 {
-    int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
 
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     int numerWczytanejLinii = 1;
-    int numerEdytowanejLinii = 0;
 
     odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
     tymczasowyPlikTekstowy.open(NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
