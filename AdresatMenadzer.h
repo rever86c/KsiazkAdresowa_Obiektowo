@@ -8,6 +8,7 @@
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
 #include "PlikZAdresatami.h"
+#include "MenuAplikacji.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
     void dodajAdresata();
     void wyswietlAdresatow();
     void usunAdresata();
+    void edytujAdresata();
 };
 
 #endif

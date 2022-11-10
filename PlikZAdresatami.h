@@ -36,6 +36,7 @@ public:
     int pobierzIdOstatniegoAdresata();
     void usunWybranegoAdresataZPliku(int idUsuwanegoAdresata);
     void pobierzZPlikuIdOstatniegoAdresata();
+    void zaktualizujDaneAdresataWPliku(Adresat adresat);
 };
 
 #endif

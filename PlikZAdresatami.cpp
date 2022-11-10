@@ -231,3 +231,55 @@ void PlikZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
     }
 }
+
+void PlikZAdresatami::zaktualizujDaneAdresataWPliku(Adresat adresat)
+{
+    int numerLiniiEdytowanegoAdresata = 0;
+    string liniaZDanymiAdresata = "";
+
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    int numerWczytanejLinii = 1;
+    int numerEdytowanejLinii = 0;
+
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good() == true && adresat.pobierzId() != 0)
+    {
+        while (getline(odczytywanyPlikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+            if(pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami) == adresat.pobierzId())
+            {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+            }
+            else
+            {
+                if (numerWczytanejLinii == 1)
+                    tymczasowyPlikTekstowy << daneJednegoAdresataOddzielonePionowymiKreskami;
+                else if (numerWczytanejLinii > 1)
+                    tymczasowyPlikTekstowy << endl << daneJednegoAdresataOddzielonePionowymiKreskami;
+            }
+            numerWczytanejLinii++;
+        }
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+        zmienNazwePliku(NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI, NAZWA_PLIKU_Z_ADRESATAMI);
+        cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
+    }
+    else
+    {
+        odczytywanyPlikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        usunPlik(NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI);
+
+    }
+
+
+}
