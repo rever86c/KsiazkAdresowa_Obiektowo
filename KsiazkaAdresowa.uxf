@@ -24,7 +24,9 @@
 + dodajAdresata() : void
 + wyświetlAdresatow() : void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku() : Integer
-+ czyUzytkownikJestZalogowany() : Bool</panel_attributes>
++ czyUzytkownikJestZalogowany() : Bool
++ usunAdresata() : void
++ edytujAdresata() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -95,9 +97,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1350</x>
-      <y>480</y>
+      <y>470</y>
       <w>460</w>
-      <h>140</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 --
@@ -107,7 +109,8 @@
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale() : String
 + konwersjaStringNaInt() : Integer
 + pobierzLiczbe() : String
-+ wczytajZnak() : Character</panel_attributes>
++ wczytajZnak() : Character
++ wczytajLiczbeCalkowita() : Integer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -148,7 +151,9 @@
 + wyswietlAdresatow() :void
 - podajDaneNowegoAdresata() : void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku() : void
-</panel_attributes>
+- podajIdWybranegoAdresata() : Integer
++ usunAdresata() : void
++ edytujAdresata() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -157,11 +162,12 @@
       <x>1260</x>
       <y>830</y>
       <w>550</w>
-      <h>230</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
 - NAZWA_PLIKU_Z_ADRESATAMI : String
+- NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI : String
 - idOstatniegoAdresata : Integer
 --
 + PlikZAdresstami()
@@ -172,7 +178,11 @@
 - pobiezIdUzytkownikaZDanychOddzielonychPionowymiKreskami() : Integer
 - pobierzDaneAdresata() : Adresat
 - pobierzIdAdresataZDanychOddzielonychPionowymiKreskami() : Integer
-</panel_attributes>
+- usunPlik() : void
+- zmienNazwePliku() : void
++ usunWybranegoAdresataZPliku() : void	
++ pobierzZPlikuIdOstatniegoAdresata() : void
++ zaktualizujDaneAdresataWPliku() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -186,8 +196,9 @@
     <panel_attributes>MenuAplikacji
 --
 --
-+ wybierzOpcjeZMenuGlownego() : Charakter
-+ wybierzOpcjeZMenuUzytkownika() : Character</panel_attributes>
++ wybierzOpcjeZMenuGlownego() : Character
++ wybierzOpcjeZMenuUzytkownika() : Character
++ wybierzOpcjeZMenuEdycja() : Character</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
